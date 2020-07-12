@@ -1,6 +1,10 @@
 from kafka import KafkaConsumer
 
-consumer = KafkaConsumer('sample', bootstrap_servers=['localhost:9092'])
+if __name__ == '__main__':
 
-for message in consumer:
-    print(message)
+    consumer = KafkaConsumer('sample',
+                    bootstrap_servers=['localhost:9092'],
+                    auto_offset_reset='earliest')
+
+    for message in consumer:
+        print(message.value)
