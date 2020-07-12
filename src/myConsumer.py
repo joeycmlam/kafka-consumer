@@ -1,3 +1,4 @@
+from datetime import datetime
 from kafka import KafkaConsumer
 
 if __name__ == '__main__':
@@ -7,4 +8,4 @@ if __name__ == '__main__':
                     auto_offset_reset='earliest')
 
     for message in consumer:
-        print(message.value)
+        print('{}: {} '.format(datetime.now(), message.value))
